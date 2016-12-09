@@ -1,0 +1,17 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+
+HKEY_CLASSES_ROOT\MFCWSDialog.Application = MFCWSDialog Application
+
+
+HKEY_CLASSES_ROOT\MFCWSDialog.Application\CLSID = {C0E76DFE-B827-45AA-8E7D-610E14DCD7F6}
+
+HKEY_CLASSES_ROOT\CLSID\{C0E76DFE-B827-45AA-8E7D-610E14DCD7F6} = MFCWSDialog Application
+HKEY_CLASSES_ROOT\CLSID\{C0E76DFE-B827-45AA-8E7D-610E14DCD7F6}\ProgId = MFCWSDialog.Application
+
+
+HKEY_CLASSES_ROOT\CLSID\{C0E76DFE-B827-45AA-8E7D-610E14DCD7F6}\LocalServer32 = MFC WS Dialog.EXE

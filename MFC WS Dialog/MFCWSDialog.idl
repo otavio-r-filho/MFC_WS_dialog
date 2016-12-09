@@ -1,0 +1,29 @@
+// MFCWSDialog.idl : type library source for MFC WS Dialog.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (MFCWSDialog.tlb).
+
+[ uuid(ED60D9EE-5018-46BC-B52C-13721278DE1A), version(1.0) ]
+library MFCWSDialog
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CMFCWSDialogDoc
+	
+	[ uuid(984E0B16-4012-4254-8673-016C81AC60C0) ]
+	dispinterface IMFCWSDialog
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for CMFCWSDialogDoc
+	
+	[ uuid(C0E76DFE-B827-45AA-8E7D-610E14DCD7F6) ]
+	coclass MFCWSDialog
+	{
+		[default] dispinterface IMFCWSDialog;
+	};
+};

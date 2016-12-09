@@ -1,0 +1,5 @@
+/Debug/
+/ipch/
+*.db
+/MFC WS Dialog/Debug/
+/.vs/
