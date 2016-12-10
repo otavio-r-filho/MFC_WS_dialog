@@ -73,6 +73,8 @@ void CMFCWSDialogDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_SCREEN_TITLE, screen_title);
+	DDX_Control(pDX, IDC_LIST1, param_list);
+	DDX_Control(pDX, IDC_PARAM_LIST, param_list);
 }
 
 BEGIN_MESSAGE_MAP(CMFCWSDialogDlg, CDialogEx)
@@ -80,6 +82,8 @@ BEGIN_MESSAGE_MAP(CMFCWSDialogDlg, CDialogEx)
 	ON_WM_CLOSE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_ADD_PARAM, &CMFCWSDialogDlg::OnBnClickedAddParam)
+	ON_BN_CLICKED(IDC_REMOVE_PARAM, &CMFCWSDialogDlg::OnBnClickedRemoveParam)
 END_MESSAGE_MAP()
 
 
@@ -119,8 +123,9 @@ BOOL CMFCWSDialogDlg::OnInitDialog()
 
 	// TODO: Add extra initialization here
 
-	CFont screen_title_font;
-	screen_title_font.CreateFontW(20, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, );
+	screen_title_font.CreateFont(20, 0, 0, 0, FW_BOLD, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, _T("Microsoft Sans Serif"));
+
+	screen_title.SetFont(&screen_title_font);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -212,3 +217,24 @@ BOOL CMFCWSDialogDlg::CanExit()
 	return TRUE;
 }
 
+
+void CMFCWSDialogDlg::OnBnClickedAddParam()
+{
+	add_param_dlg.DoModal();
+
+	if (!add_param_dlg.param_name.IsEmpty() && !add_param_dlg.param_value.IsEmpty()) {
+		CString full_param = add_param_dlg.param_name + "=" + add_param_dlg.param_value;
+
+		add_param_dlg.param_name = "";
+		add_param_dlg.param_value = "";
+
+		param_list.AddString(full_param);
+	}	
+}
+
+
+void CMFCWSDialogDlg::OnBnClickedRemoveParam()
+{
+	int item = param_list.GetCurSel();
+	param_list.DeleteString(item);
+}

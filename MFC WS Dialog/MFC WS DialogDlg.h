@@ -4,6 +4,7 @@
 
 #pragma once
 #include "afxwin.h"
+#include "Add_Param_Dlg.h"
 
 class CMFCWSDialogDlgAutoProxy;
 
@@ -47,4 +48,13 @@ protected:
 public:
 	// Control of the scree tittle
 	CStatic screen_title;
+
+	CAdd_Param_Dlg add_param_dlg;
+
+	CString param_name, param_value;
+
+	CFont screen_title_font;
+	CListBox param_list;
+	afx_msg void OnBnClickedAddParam();
+	afx_msg void OnBnClickedRemoveParam();
 };

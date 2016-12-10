@@ -2,4 +2,6 @@
 /ipch/
 *.db
 /MFC WS Dialog/Debug/
+/MFC WS Dialog/x64/
+/x64/
 /.vs/
